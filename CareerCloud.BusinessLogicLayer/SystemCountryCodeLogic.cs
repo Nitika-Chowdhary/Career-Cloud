@@ -16,7 +16,21 @@ namespace CareerCloud.BusinessLogicLayer
         }
         protected void Verify(SystemCountryCodePoco[] pocos)
         {
-            return;
+            List<ValidationException> exceptions = new List<ValidationException>();
+            
+            foreach (SystemCountryCodePoco poco in pocos)
+            {
+                if(string.IsNullOrEmpty(poco.Code)) {
+                     exceptions.Add(new ValidationException(900, "Code Cannot be empty")); 
+                     }
+                if(string.IsNullOrEmpty(poco.Name)) {
+                    exceptions.Add(new ValidationException(901, "Cannot be empty"));
+                }
+            }
+            if (exceptions.Count > 0)
+            {
+                throw new AggregateException(exceptions);
+            }
         }
 
         public SystemCountryCodePoco Get(String code)
