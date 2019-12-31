@@ -2,46 +2,48 @@
 using CareerCloud.Pocos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CareerCloud.BusinessLogicLayer
 {
-    public class SystemLanguageCodeLogic : BaseLogic<SystemLanguageCodePoco>
+    public class SystemLanguageCodeLogic
     {
-        public SystemLanguageCodeLogic(IDataRepository<SystemLanguageCodePoco> repository) : base(repository)
+        protected IDataRepository<SystemLanguageCodePoco> _repository;
+        public SystemLanguageCodeLogic(IDataRepository<SystemLanguageCodePoco> repository) 
         {
+            _repository = repository; 
+        }
+        protected void Verify(SystemLanguageCodePoco[] pocos)
+        {
+            return;
         }
 
-        public override void Add(SystemLanguageCodePoco[] pocos)
+        public SystemLanguageCodePoco Get(String languageId)
+        {
+            return _repository.GetSingle(c => c.LanguageID == languageId);
+        }
+
+        public List<SystemLanguageCodePoco> GetAll()
+        {
+            return _repository.GetAll().ToList();
+        }
+
+        public void Add(SystemLanguageCodePoco[] pocos)
         {
             Verify(pocos);
-            foreach (SystemLanguageCodePoco poco in pocos)
-            {
-                
-            }
-            base.Add(pocos);
+            _repository.Add(pocos);
         }
 
-        public override void Update(SystemLanguageCodePoco[] pocos)
+        public void Update(SystemLanguageCodePoco[] pocos)
         {
             Verify(pocos);
-            base.Update(pocos);
+            _repository.Update(pocos);
         }
 
-        protected override void Verify(SystemLanguageCodePoco[] pocos)
+        public void Delete(SystemLanguageCodePoco[] pocos)
         {
-            List<ValidationException> exceptions = new List<ValidationException>();
-            
-            foreach (var poco in pocos)
-            {
-                
-
-            }
-
-            if (exceptions.Count > 0)
-            {
-                throw new AggregateException(exceptions);
-            }
+            _repository.Remove(pocos);
         }
     }
 }
