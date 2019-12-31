@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(ApplicantProfilePoco[] pocos)
         {
-            Verify(pocos);
-            foreach (ApplicantProfilePoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,9 +28,14 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (ApplicantProfilePoco poco in pocos)
             {
-                
+                if(poco.CurrentSalary < 0) {
+                    exceptions.Add(new ValidationException(111, "CurrentSalary cannot be negative"));
+                }
+                if(poco.CurrentRate < 0) {
+                    exceptions.Add(new ValidationException(112, "CurrentRate cannot be negative"));
+                }
 
             }
 
