@@ -6,29 +6,29 @@ using System.Text;
 
 namespace CareerCloud.BusinessLogicLayer
 {
-    public class ApplicantWorkHistorysLogic : BaseLogic<ApplicantWorkHistorysPoco>
+    public class ApplicantWorkHistoryLogic : BaseLogic<ApplicantWorkHistoryPoco>
     {
-        public ApplicantWorkHistorysLogic(IDataRepository<ApplicantWorkHistorysPoco> repository) : base(repository)
+        public ApplicantWorkHistoryLogic(IDataRepository<ApplicantWorkHistoryPoco> repository) : base(repository)
         {
         }
 
-        public override void Add(ApplicantWorkHistorysPoco[] pocos)
+        public override void Add(ApplicantWorkHistoryPoco[] pocos)
         {
             Verify(pocos);
-            foreach (ApplicantWorkHistorysPoco poco in pocos)
+            foreach (ApplicantWorkHistoryPoco poco in pocos)
             {
                 
             }
             base.Add(pocos);
         }
 
-        public override void Update(ApplicantWorkHistorysPoco[] pocos)
+        public override void Update(ApplicantWorkHistoryPoco[] pocos)
         {
             Verify(pocos);
             base.Update(pocos);
         }
 
-        protected override void Verify(ApplicantWorkHistorysPoco[] pocos)
+        protected override void Verify(ApplicantWorkHistoryPoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
