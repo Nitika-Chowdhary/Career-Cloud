@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(SecurityRolePoco[] pocos)
         {
-            Verify(pocos);
-            foreach (SecurityRolePoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,9 +28,11 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (SecurityRolePoco poco in pocos)
             {
-                
+                if(string.IsNullOrEmpty(poco.Role)) {
+                    exceptions.Add(new ValidationException(800, "Role Cannot be empty"));
+                }
 
             }
 
