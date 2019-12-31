@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(CompanyJobEducationPoco[] pocos)
         {
-            Verify(pocos);
-            foreach (CompanyJobEducationPoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,10 +28,14 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (CompanyJobEducationPoco poco in pocos)
             {
-                
-
+                if(poco.Major.Length < 2) {
+                    exceptions.Add(new ValidationException(200, "Major must be at least 2 characters "));
+                }
+                if(poco.Importance < 0) {
+                    exceptions.Add(new ValidationException(201, "Importance cannot be less than 0"));
+                }           
             }
 
             if (exceptions.Count > 0)
