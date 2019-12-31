@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(ApplicantSkillPoco[] pocos)
         {
-            Verify(pocos);
-            foreach (ApplicantSkillPoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,10 +28,20 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (ApplicantSkillPoco poco in pocos)
             {
-                
-
+                if(poco.StartMonth > 12) {
+                    exceptions.Add(new ValidationException(101, "Start date can not be greater than 12"));
+                }
+                if(poco.EndMonth > 12) {
+                    exceptions.Add(new ValidationException(102, "End month can not be greater than 12"));
+                }
+                if(poco.StartYear < 1900) {
+                    exceptions.Add(new ValidationException(103, "Start year cannot be less then 1900"));
+                }                
+                if(poco.EndYear < poco.StartYear) {
+                    exceptions.Add(new ValidationException(104, "End year Cannot be less then StartYear"));
+                }
             }
 
             if (exceptions.Count > 0)
