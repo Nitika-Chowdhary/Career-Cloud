@@ -15,10 +15,6 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Add(ApplicantEducationPoco[] pocos)
         {
             Verify(pocos);
-            foreach (ApplicantEducationPoco poco in pocos)
-            {
-                
-            }
             base.Add(pocos);
         }
 
@@ -34,7 +30,18 @@ namespace CareerCloud.BusinessLogicLayer
             
             foreach (var poco in pocos)
             {
-                
+                if(string.IsNullOrEmpty(poco.Major)) {
+                    exceptions.Add(new ValidationException(107, "Major can not be blank!"));
+                }
+                else if(poco.Major.Length < 3) {
+                    exceptions.Add(new ValidationException(107, "The length of Major can not be less than three!"));
+                }
+                if(poco.StartDate > DateTime.Now) {
+                    exceptions.Add(new ValidationException(108, "Start date can not be greater than today"));
+                }
+                if(poco.CompletionDate < poco.StartDate) {
+                    exceptions.Add(new ValidationException(109, "Completion date can not be before the start date"));
+                }
 
             }
 
