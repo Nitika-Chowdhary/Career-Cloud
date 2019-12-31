@@ -28,7 +28,7 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (ApplicantEducationPoco poco in pocos)
             {
                 if(string.IsNullOrEmpty(poco.Major)) {
                     exceptions.Add(new ValidationException(107, "Major can not be blank!"));
