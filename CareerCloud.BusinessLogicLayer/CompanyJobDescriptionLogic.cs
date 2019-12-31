@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(CompanyJobDescriptionPoco[] pocos)
         {
-            Verify(pocos);
-            foreach (CompanyJobDescriptionPoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,10 +28,14 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (CompanyJobDescriptionPoco poco in pocos)
             {
-                
-
+                if(string.IsNullOrEmpty(poco.JobName)) {
+                    exceptions.Add(new ValidationException(300, "JobName cannot be empty"));
+                }
+                if(string.IsNullOrEmpty(poco.JobDescriptions)) {
+                    exceptions.Add(new ValidationException(301, "JobDescriptions cannot be empty"));
+                }
             }
 
             if (exceptions.Count > 0)
