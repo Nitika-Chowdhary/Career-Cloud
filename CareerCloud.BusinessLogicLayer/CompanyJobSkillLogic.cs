@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(CompanyJobSkillPoco[] pocos)
         {
-            Verify(pocos);
-            foreach (CompanyJobSkillPoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,10 +28,11 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (CompanyJobSkillPoco poco in pocos)
             {
-                
-
+                if(poco.Importance < 0) {
+                    exceptions.Add(new ValidationException(400, "Importance cannot be less than 0"));
+                }
             }
 
             if (exceptions.Count > 0)
