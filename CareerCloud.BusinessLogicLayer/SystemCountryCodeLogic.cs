@@ -24,7 +24,7 @@ namespace CareerCloud.BusinessLogicLayer
                      exceptions.Add(new ValidationException(900, "Code Cannot be empty")); 
                      }
                 if(string.IsNullOrEmpty(poco.Name)) {
-                    exceptions.Add(new ValidationException(901, "Cannot be empty"));
+                    exceptions.Add(new ValidationException(901, "Name Cannot be empty"));
                 }
             }
             if (exceptions.Count > 0)
