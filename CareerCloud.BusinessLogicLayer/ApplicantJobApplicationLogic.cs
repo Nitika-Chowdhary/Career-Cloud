@@ -15,10 +15,6 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Add(ApplicantJobApplicationPoco[] pocos)
         {
             Verify(pocos);
-            foreach (ApplicantJobApplicationPoco poco in pocos)
-            {
-                
-            }
             base.Add(pocos);
         }
 
@@ -34,7 +30,9 @@ namespace CareerCloud.BusinessLogicLayer
             
             foreach (var poco in pocos)
             {
-                
+                if(poco.ApplicationDate > DateTime.Now) {
+                    exceptions.Add(new ValidationException(110, "ApplicationDate cannot be greater than today"));
+                }
 
             }
 
