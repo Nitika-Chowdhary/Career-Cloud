@@ -14,11 +14,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Add(CompanyLocationPoco[] pocos)
         {
-            Verify(pocos);
-            foreach (CompanyLocationPoco poco in pocos)
-            {
-                
-            }
+            Verify(pocos);            
             base.Add(pocos);
         }
 
@@ -32,9 +28,23 @@ namespace CareerCloud.BusinessLogicLayer
         {
             List<ValidationException> exceptions = new List<ValidationException>();
             
-            foreach (var poco in pocos)
+            foreach (CompanyLocationPoco poco in pocos)
             {
-                
+                if(string.IsNullOrEmpty(poco.CountryCode)) {
+                    exceptions.Add(new ValidationException(500, "CountryCode cannot be empty"));
+                }
+                if(string.IsNullOrEmpty(poco.Province)) {
+                    exceptions.Add(new ValidationException(501, "Province cannot be empty"));
+                }
+                if(string.IsNullOrEmpty(poco.Street)) {
+                    exceptions.Add(new ValidationException(502, "Street cannot be empty"));
+                }
+                if(string.IsNullOrEmpty(poco.City)) {
+                    exceptions.Add(new ValidationException(503, "City cannot be empty"));
+                }
+                if(string.IsNullOrEmpty(poco.PostalCode)) {
+                    exceptions.Add(new ValidationException(504, "PostalCode cannot be empty"));
+                }
 
             }
 
