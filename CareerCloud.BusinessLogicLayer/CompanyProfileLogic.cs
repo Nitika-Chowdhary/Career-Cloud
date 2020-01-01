@@ -31,13 +31,13 @@ namespace CareerCloud.BusinessLogicLayer
             
             foreach (CompanyProfilePoco poco in pocos)
             {
-                if (!Regex.IsMatch(poco.CompanyWebsite, @"^(www\.)?[-a-zA-Z0-9\@:%._\+~#=]{2,256}\.(ca|com|biz)$", RegexOptions.IgnoreCase))
+                if (string.IsNullOrEmpty(poco.CompanyWebsite) || !Regex.IsMatch(poco.CompanyWebsite, @"^(www\.)?[-a-zA-Z0-9\@:%._\+~#=]{2,256}\.(ca|com|biz)$", RegexOptions.IgnoreCase))
                 {
                     exceptions.Add(new ValidationException(600, " Valid websites must end with the following extensions – .ca, .com, .biz"));
                 }
                 
-                string[] phoneComponents = poco.ContactPhone.Split('-');
-                if (phoneComponents.Length != 3)
+                string[] phoneComponents = poco.ContactPhone?.Split('-');
+                if (string.IsNullOrEmpty(poco.ContactPhone) || phoneComponents.Length != 3)
                 {
                     exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile {poco.Id} is not in the required format."));
                 }
