@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.ADODataAccessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment2", "..\CareerCloudCore.UnitTests.Assignment2\CareerCloudCore.UnitTests.Assignment2.csproj", "{71BE9327-C39F-4B5E-9CB5-7D562E829325}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCloud.BusinessLogicLayer", "CareerCloud.BusinessLogicLayer\CareerCloud.BusinessLogicLayer.csproj", "{6263ECFA-D3B0-4A67-B779-ECD8B4E02A2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.BusinessLogicLayer", "CareerCloud.BusinessLogicLayer\CareerCloud.BusinessLogicLayer.csproj", "{6263ECFA-D3B0-4A67-B779-ECD8B4E02A2D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment3", "..\CareerCloudCore.UnitTests.Assignment3\CareerCloudCore.UnitTests.Assignment3.csproj", "{FD0FAF00-2D40-4F2C-95FA-4D4C4D46B56E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCloud.EntityFrameworkDataAccess", "CareerCloud.EntityFrameworkDataAccess\CareerCloud.EntityFrameworkDataAccess.csproj", "{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment4", "CareerCloudCore.UnitTests.Assignment4\CareerCloudCore.UnitTests.Assignment4.csproj", "{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{FD0FAF00-2D40-4F2C-95FA-4D4C4D46B56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD0FAF00-2D40-4F2C-95FA-4D4C4D46B56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD0FAF00-2D40-4F2C-95FA-4D4C4D46B56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

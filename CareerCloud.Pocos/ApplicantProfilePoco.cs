@@ -21,6 +21,7 @@ namespace CareerCloud.Pocos
         public String Currency { get; set; }
 
         [Column("Country_Code")]
+        [ForeignKey("SystemCountryCodePoco")]
         public String Country { get; set; }
 
         [Column("State_Province_Code")]
@@ -36,7 +37,22 @@ namespace CareerCloud.Pocos
         public String PostalCode { get; set; }
 
         [Column("Time_Stamp")]
+        [NotMapped]
         public Byte[] TimeStamp { get; set; }
 
+        public virtual  ICollection<ApplicantEducationPoco> ApplicantEducation { get; set; }
+
+        [ForeignKey("Login")]
+        public virtual SecurityLoginPoco SecurityLogin { get; set; }
+
+        public virtual ICollection<ApplicantResumePoco> ApplicantResumes { get; set; }
+
+        public virtual ICollection<ApplicantSkillPoco> ApplicantSkills { get; set; }
+
+        public virtual ICollection<ApplicantWorkHistoryPoco> ApplicantWorkHistoryPocos { get; set; }
+
+        public virtual SystemCountryCodePoco SystemCountryCodePoco { get; set; }
+
+        public virtual ICollection<ApplicantJobApplicationPoco> ApplicantJobApplicationPocos { get; set; }
     }
 }
