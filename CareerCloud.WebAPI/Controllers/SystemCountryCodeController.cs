@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using CareerCloud.BusinessLogicLayer;
+using CareerCloud.EntityFrameworkDataAccess;
+using CareerCloud.Pocos;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CareerCloud.WebAPI.Controllers
+{
+    [Route("api/careercloud/system/v1")]
+    [ApiController]
+    public class SystemCountryCodeController : ControllerBase
+    {
+        private readonly SystemCountryCodeLogic _logic;
+        public SystemCountryCodeController()
+        {
+            var repo = new EFGenericRepository<SystemCountryCodePoco>();
+            _logic = new SystemCountryCodeLogic(repo);
+        }
+
+        [HttpGet]
+        [Route("countrycode/{id}")]
+        public ActionResult GetSystemCountryCode(string code)
+        {
+            SystemCountryCodePoco poco = _logic.Get(code);
+            if (poco == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(poco);
+            }
+        }
+
+        [HttpGet]
+        [Route("countrycode")]
+        public ActionResult GetAllSystemCountryCode()
+        {
+            var applicants = _logic.GetAll();
+            if (applicants == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(applicants);
+            }
+        }
+
+        [HttpPost]
+        [Route("countrycode")]
+        public ActionResult PostSystemCountryCode(
+            [FromBody] SystemCountryCodePoco[] SystemCountryCodePocos)
+        {
+            _logic.Add(SystemCountryCodePocos);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("countrycode")]
+        public ActionResult PutSystemCountryCode(
+            [FromBody] SystemCountryCodePoco[] SystemCountryCodePocos)
+        {
+            _logic.Update(SystemCountryCodePocos);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("countrycode")]
+        public ActionResult DeleteSystemCountryCode(
+            [FromBody] SystemCountryCodePoco[] SystemCountryCodePocos)
+        {
+            _logic.Delete(SystemCountryCodePocos);
+            return Ok();
+        }
+
+    }
+}

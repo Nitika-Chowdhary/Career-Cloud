@@ -17,9 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.BusinessLogicLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment3", "..\CareerCloudCore.UnitTests.Assignment3\CareerCloudCore.UnitTests.Assignment3.csproj", "{FD0FAF00-2D40-4F2C-95FA-4D4C4D46B56E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CareerCloud.EntityFrameworkDataAccess", "CareerCloud.EntityFrameworkDataAccess\CareerCloud.EntityFrameworkDataAccess.csproj", "{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.EntityFrameworkDataAccess", "CareerCloud.EntityFrameworkDataAccess\CareerCloud.EntityFrameworkDataAccess.csproj", "{2C4FC3BE-E7E8-488A-B275-6CB048F54EC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment4", "CareerCloudCore.UnitTests.Assignment4\CareerCloudCore.UnitTests.Assignment4.csproj", "{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloud.WebAPI", "CareerCloud.WebAPI\CareerCloud.WebAPI.csproj", "{6827D252-FA0B-4985-9280-6C267E464AF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareerCloudCore.UnitTests.Assignment5", "..\CareerCloudCore.UnitTests.Assignment5\CareerCloudCore.UnitTests.Assignment5.csproj", "{112336E8-4E8D-490E-A633-18848C5069AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +67,14 @@ Global
 		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2F74C30-3A94-4F5C-8061-FEEDD96B3F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6827D252-FA0B-4985-9280-6C267E464AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6827D252-FA0B-4985-9280-6C267E464AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6827D252-FA0B-4985-9280-6C267E464AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6827D252-FA0B-4985-9280-6C267E464AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{112336E8-4E8D-490E-A633-18848C5069AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{112336E8-4E8D-490E-A633-18848C5069AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{112336E8-4E8D-490E-A633-18848C5069AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{112336E8-4E8D-490E-A633-18848C5069AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
